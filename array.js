@@ -54,17 +54,17 @@
 
 
 // push the target to end
-let arr = [6,2,3,6,4,3,6,1,66,9,6]
-let target=6
+// let arr = [6,2,3,6,4,3,6,1,66,9,6]
+// let target=6
 
-for (let i = 0, j = arr.length - 1; i < j;) {
-    if (arr[i] === target) {
-        [arr[j], arr[i]] = [arr[i], arr[j]];
-        j--;
-    } else {
-        i++
-    }
-}
+// for (let i = 0, j = arr.length - 1; i < j;) {
+//     if (arr[i] === target) {
+//         [arr[j], arr[i]] = [arr[i], arr[j]];
+//         j--;
+//     } else {
+//         i++
+//     }
+// }
 
-console.log(arr);
+// console.log(arr);
 
