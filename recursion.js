@@ -1,4 +1,4 @@
-// reverse a string 
+// // reverse a string 
 
 // function recursiveFibonacci(str,i){
 //     if(str.length == i){
@@ -7,6 +7,17 @@
 //     return recursiveFibonacci(str,i+1) + str[i]
 // }
 // console.log(recursiveFibonacci("sarma",0));
+
+
+
+
+
+
+
+
+
+
+
 
 // factorial of a number 
 
@@ -18,23 +29,47 @@
 // }
 // console.log(recursiveFactorial(5));
 
+
+
+
+
+
+
+
+
+
+
+
 // number countdown 
 // function countDown(n){
-//     console.log(n);
-//     let num = n - 1
-//     if(num > 0){
-//         countDown(num)
+//     if(n - 1 >= 0){
+//         countDown(n - 1)
+//         console.log(n);
 //     }
 // }
 // countDown(10);
 
+
+
+
+
+
+
+
+
+
+
+
 // function countDown(n){
+//     console.log(n);
 //     if(n == 1){
-//         return 1
+//         return
 //     }
-//     return n + countDown(n-1)
+//     return countDown(n-1)
 // }
-// console.log(countDown(10));
+// countDown(1000);
+
+
 
 // function fib(n){
 //     if(n<2){
@@ -44,12 +79,20 @@
 // }
 // console.log(fib(5));
 
-function fn(n){
-    if(n<=1){
-        return 
-    }
-    fn(n-1)
-    console.log(n);
-    fn(n-1)
-}
-fn(5)
+// function fn(n){
+//     if(n<=1){
+//         return 
+//     }
+//     fn(n-1)
+//     console.log(n);
+//     fn(n-1)
+// }
+// fn(5)
+
+// function fn(str,i){
+//     if(str.length==i){
+//         return ""
+//     }
+//     return str[i]+fn(str,i+1) 
+// }
+// console.log(fn("amras hameed",0));
