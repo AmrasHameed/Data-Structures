@@ -117,81 +117,81 @@
 // stack.print()
 
 
-class Node {
-    constructor(value) {
-        this.value = value
-        this.next = null
-    }
-}
-class Linkedlist {
-    constructor() {
-        this.head = null
-        this.size = 0
-    }
-    push(value) {
-        const node = new Node(value)
-        node.next = this.head
-        this.head = node
-        this.size++
-    }
-    pop() {
-        if(this.size == 0) {
-            console.log("List is empty");
-            return
-        }
-        let temp = this.head
-        this.head = this.head.next
-        temp = null
-        this.size--
-    }
+// class Node {
+//     constructor(value) {
+//         this.value = value
+//         this.next = null
+//     }
+// }
+// class Linkedlist {
+//     constructor() {
+//         this.head = null
+//         this.size = 0
+//     }
+//     push(value) {
+//         const node = new Node(value)
+//         node.next = this.head
+//         this.head = node
+//         this.size++
+//     }
+//     pop() {
+//         if(this.size == 0) {
+//             console.log("List is empty");
+//             return
+//         }
+//         let temp = this.head
+//         this.head = this.head.next
+//         temp = null
+//         this.size--
+//     }
 
-    peek() {
-        console.log(this.head.value);
-        return
-    }
+//     peek() {
+//         console.log(this.head.value);
+//         return
+//     }
 
-    reverse() {
-        let stack = []
-        let curr = this.head
-        while(curr) {
-            stack.push(curr)
-            curr = curr.next
-        }
-        this.head = stack.pop()
-        curr = this.head
-        while(curr) {
-            curr.next = stack.pop()
-            curr = curr.next
-        }
-    }
+//     reverse() {
+//         let stack = []
+//         let curr = this.head
+//         while(curr) {
+//             stack.push(curr)
+//             curr = curr.next
+//         }
+//         this.head = stack.pop()
+//         curr = this.head
+//         while(curr) {
+//             curr.next = stack.pop()
+//             curr = curr.next
+//         }
+//     }
 
-    print() {
-        if(this.size == 0){
-            console.log("List is Empty");
-            return
-        }
-        let curr = this.head
-        let listValue = ''
-        while(curr) {
-            listValue += `${curr.value} `
-            curr = curr.next
-        }
-        console.log(listValue);
-    }
-}
+//     print() {
+//         if(this.size == 0){
+//             console.log("List is Empty");
+//             return
+//         }
+//         let curr = this.head
+//         let listValue = ''
+//         while(curr) {
+//             listValue += `${curr.value} `
+//             curr = curr.next
+//         }
+//         console.log(listValue);
+//     }
+// }
 
-const list = new Linkedlist()
-list.print()
-list.push(10)
-list.push(0)
-list.push(2)
-list.push(18)
-list.push(-1)
-list.push(9)
-list.print()
-list.reverse()
-list.print()
-console.log(list.head);
+// const list = new Linkedlist()
+// list.print()
+// list.push(10)
+// list.push(0)
+// list.push(2)
+// list.push(18)
+// list.push(-1)
+// list.push(9)
+// list.print()
+// list.reverse()
+// list.print()
+// console.log(list.head);
 
 
 // class Queue {
@@ -235,4 +235,83 @@ console.log(list.head);
 // queue.print()
 // queue.dequeue()
 // queue.print()
+
+class CircularQueue {
+    constructor(capacity) {
+        this.items = new Array(capacity)
+        this.capacity = capacity
+        this.currentLength = 0
+        this.rear = -1
+        this.front = -1
+    }
+
+    isFull() {
+        return this.currentLength == this.capacity
+    }
+
+    isEmpty() {
+        return this.currentLength == 0
+    }
+
+    enqueue(value) {
+        if(!this.isFull()) {
+            this.rear = (this.rear + 1) % this.capacity
+            this.items[this.rear] = value
+            this.currentLength++
+            if(this.front == -1) {
+                this.front = this.rear
+            }
+        }
+    }
+
+    dequeue() {
+        if(this.isEmpty()) {
+            console.log("Empty List");
+            return
+        } else {
+            this.items[this.front] = null
+            this.front = (this.front + 1) % this.capacity
+            this.currentLength--
+            if(this.isEmpty()) {
+                this.rear = -1
+                this.front = -1
+            }
+        }
+    }
+
+    peek() {
+        if(!this.isEmpty()) {
+            return this.items[this.front]
+        }
+        return null
+    }
+
+    print() {
+        if(this.isEmpty()) {
+            console.log('Queue is empty');
+        } else {
+            let i;
+            let str = ''
+            for(i = this.front; i !== this.rear; i = (i + 1) % this.capacity) {
+                str += this.items[i] + ' '
+            }
+            str += this.items[i]
+            console.log(str);
+        }
+    }
+}
+
+const queue = new CircularQueue(5)
+queue.print()
+queue.enqueue(10)
+queue.enqueue(2)
+queue.enqueue(1)
+queue.enqueue(0)
+queue.enqueue(9)
+queue.print()
+queue.dequeue()
+queue.print()
+queue.enqueue(21)
+queue.enqueue(31)
+queue.print()
 

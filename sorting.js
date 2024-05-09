@@ -9,50 +9,62 @@
 //             }
 //         }
 //     } while (swap)
-//     return arr
-// }
+//         return arr
+//     }
+
 
 // function insertionSort(arr) {
-//     for(let i = 1; i < arr.length; i++) {
+// for(let i = 1; i < arr.length; i++) {
 //         let num = arr[i]
-//         let j = i - 1
-//         while(j >= 0 && arr[j] > num) {
-//             arr[j + 1] = arr[j]
-//             j = j-1
-//         }
-//         arr[j + 1] = num
+//     let j = i - 1
+//     while(j >= 0 && arr[j] > num) {
+//         arr[j + 1] = arr[j]
+//         j = j-1
 //     }
+//     arr[j + 1] = num
 // }
+// return arr
+// }
+
+
+
+
+
 
 
 // function bubbleSort(arr) {
-//     let swap = false;
+    //     let swap = false;
 //     for(let i = 0; i < arr.length - 1; i++) {
-//         if(arr[i] > arr[i + 1]) {
-//             [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
-//             swap = true
-//         }
-//     }
-//     if(!swap) {
-//         return arr
+    //         if(arr[i] > arr[i + 1]) {
+        //             [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+        //             swap = true
+        //         }
+        //     }
+        //     if(!swap) {
+            //         return arr
 //     } else {
 //         return bubbleSort(arr)
 //     }
 // }
 
 
-// function selectionSort(arr) {
-//     for(let i = 0; i < arr.length - 1; i++) {
-//         let min = i
-//         for(let j = i + 1; j < arr.length; j++) {
-//             if(arr[j] < arr[min]) {
-//                 min = j
-//             }
-//         }
-//         [arr[i], arr[min]] = [arr[min], arr[i]]
-//     }
-//     return arr
-// }
+function selectionSort(arr) {
+    for(let i = 0; i < arr.length - 1; i++) {
+            let min = i
+    for(let j = i + 1; j < arr.length; j++) {
+            if(arr[j] < arr[min]) {
+                    min = j
+                }
+            }
+    [arr[i], arr[min]] = [arr[min], arr[i]]
+    }
+    return arr
+}
+
+let arr = [5, -2, 8, -1, 9, 3, -7, 4, 10, -6]
+console.log(selectionSort(arr));
+
+
 
 
 // function quickSort(arr) {
@@ -92,5 +104,3 @@
 //     }
 //     return [...sorted, ...left, ...right]
 // }
-let arr = [5, -2, 8, -1, 9, 3, -7, 4, 10, -6]
-console.log(quickSort(arr));
