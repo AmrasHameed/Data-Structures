@@ -153,74 +153,102 @@
 //     }
 // }
 
-class Node {
-    constructor(value) {
-        this.value = value
-        this.next = null
-    }
-}
+// class Node {
+//     constructor(value) {
+//         this.value = value
+//         this.next = null
+//     }
+// }
 
 
-class LinkedList {
+// class LinkedList {
+//     constructor() {
+//         this.front = null
+//         this.rear = null
+//         this.size = 0
+//     }
+//     enqueue(value) {
+//         const node = new Node(value)
+//         if(this.size === 0) {
+//             this.front = node
+//             this.rear = node
+//         } else {
+//             this.rear.next = node
+//             this.rear = node
+//         }
+//         this.size++
+//     }
+
+//     dequeue() {
+//         if(this.size === 0) {
+//             return null
+//         }
+//         const item = this.front
+//         this.front = this.front.next
+//         this.size--
+//         return item
+//     }
+//     print() {
+//         if(this.size == 0) {
+//             console.log("List is empty");
+//             return
+//         }
+//         let curr =this.front
+//         let listValue = ""
+//         while(curr) {
+//             listValue += `${curr.value} `
+//             curr = curr.next
+//         }
+//         console.log(listValue);
+//     }
+// }
+
+// const list = new LinkedList()
+// list.print()
+// list.enqueue(19)
+// list.enqueue(1)
+// list.enqueue(34)
+// list.enqueue(4)
+// list.enqueue(0)
+// list.print()
+// console.log(list.dequeue())
+// list.print()
+// console.log(list);
+
+class Queue {
     constructor() {
-        this.front = null
-        this.rear = null
-        this.size = 0
+        this.items = {}
+        this.rear = 0
+        this.front = 0
     }
+
     enqueue(value) {
-        const node = new Node(value)
-        if(this.size === 0) {
-            this.front = node
-            this.rear = node
-        } else {
-            this.rear.next = node
-            this.rear = node
-        }
-        this.size++
+        this.items[this.rear] = value
+        this.rear++
     }
 
     dequeue() {
-        if(this.size === 0) {
-            return null
-        }
-        const item = this.front
-        this.front = this.front.next
-        this.size--
-        return item
+        delete this.items[this.front]
+        this.front++
     }
+
+    peek() {
+        return this.items[this.front]
+    }
+
     print() {
-        if(this.size == 0) {
-            console.log("List is empty");
-            return
-        }
-        let curr =this.front
-        let listValue = ""
-        while(curr) {
-            listValue += `${curr.value} `
-            curr = curr.next
-        }
-        console.log(listValue);
+        console.log(this.items);
     }
+
 }
 
-const list = new LinkedList()
-list.print()
-list.enqueue(19)
-list.enqueue(1)
-list.enqueue(34)
-list.enqueue(4)
-list.enqueue(0)
-list.print()
-console.log(list.dequeue())
-list.print()
-console.log(list);
-
-// const queue = new CircularQueue(5)
-// queue.print()
-// queue.enqueue(10)
-// queue.enqueue(2)
-// queue.enqueue(1)
-// queue.enqueue(0)
-// queue.enqueue(9)
-// queue.print()
-// console.log(queue);
+const queue = new Queue(5)
+queue.print()
+queue.enqueue(10)
+queue.enqueue(2)
+queue.enqueue(1)
+queue.enqueue(0)
+queue.enqueue(9)
+queue.print()
+queue.dequeue()
+queue.print()
