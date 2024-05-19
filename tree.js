@@ -389,21 +389,37 @@ class BinarySearchTree {
             }
         }
     }
+    isValid(root) {
+        if(root == null) {
+            return true
+        }
+        if(root.left && this.max(root.left) > root.value) {
+            return false
+        }
+        if(root.right && this.min(root.right) < root.value) {
+            return false
+        }
+        if(!this.isValid(root.left) || !this.isValid(root.right)) {
+            return false
+        }
+        return true
+    }
 }
 
 const bst = new BinarySearchTree()
+console.log(bst.isValid(notBST));
 // console.log(bst.isEmpty());
-bst.insert(10)
-bst.insert(20)
-bst.insert(19)
-bst.insert(9)
-bst.insert(22)
-bst.insert(24)
+bst.insert(5)
+bst.insert(1)
+bst.insert(4)
+bst.insert(3)
+bst.insert(6)
+bst.insert(7)
 // console.log(bst.min(bst.root));\
-bst.inOrder(bst.root);
+
 // bst.delete(bst.root,10)
 console.log("sdofjsdlfn");
-console.log(bst.findPath(22));
+// console.log(bst.findPath(22));
 console.log(bst.closest(bst.root, 23));
 // console.log(bst.findDepth(24)); 
 // console.log(bst.ancestor(bst.root, 9, 24));
