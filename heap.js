@@ -202,37 +202,11 @@ class Heap {
 }
 
 
-// function heapSort(arr) {
-//     for(let i = Math.floor(arr.length / 2) -1; i >= 0; i--) {
-//         maxHeap(arr, arr.length, i)
-//     }
-//     function maxHeap(arr, n, i) {
-//         let largest = i
-//         let left = (2 * i) + 1
-//         let right = (2 * i) + 2
-//         if(left < n && arr[left] > arr[largest]) {
-//             largest = left
-//         }
-//         if(right < n && arr[right] > arr[largest]) {
-//             largest = right
-//         }
-//         if(largest !== i) {
-//             [arr[i], arr[largest]] = [arr[largest], arr[i]]
-//             maxHeap(arr, n, largest)
-//         }
-//     }
-//     for(let i = arr.length - 1; i >= 0; i--) {
-//         [arr[0], arr[i]] = [arr[i], arr[0]]
-//         maxHeap(arr, i, 0)
-//     }
-//     return arr
-// }
-
-
 function heapSort(arr) {
-    for(let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
+    for(let i = Math.floor(arr.length / 2) - 1 ; i >= 0; i--) {
         maxHeap(arr, arr.length, i)
     }
+
     function maxHeap(arr, n, i) {
         let largest = i
         let left = 2 * i + 1
@@ -243,17 +217,46 @@ function heapSort(arr) {
         if(left < n && arr[left] > arr[largest]) {
             largest = left
         }
+
         if(largest !== i) {
             [arr[i], arr[largest]] = [arr[largest], arr[i]]
             maxHeap(arr, n, largest)
         }
     }
-    for(let i = arr.length - 1; i >= 0 ; i--) {
+
+    for(let i = arr.length - 1; i >= 0; i--) {
         [arr[0], arr[i]] = [arr[i], arr[0]]
         maxHeap(arr, i, 0)
     }
     return arr
 }
+
+
+// function heapSort(arr) {
+//     for(let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
+//         maxHeap(arr, arr.length, i)
+//     }
+//     function maxHeap(arr, n, i) {
+//         let largest = i
+//         let left = 2 * i + 1
+//         let right = 2 * i + 2
+//         if(right < n && arr[right] > arr[largest]) {
+//             largest = right
+//         }
+//         if(left < n && arr[left] > arr[largest]) {
+//             largest = left
+//         }
+//         if(largest !== i) {
+//             [arr[i], arr[largest]] = [arr[largest], arr[i]]
+//             maxHeap(arr, n, largest)
+//         }
+//     }
+//     for(let i = arr.length - 1; i >= 0 ; i--) {
+//         [arr[0], arr[i]] = [arr[i], arr[0]]
+//         maxHeap(arr, i, 0)
+//     }
+//     return arr
+// }
 // const heap = new Heap() 
 // heap.buildHeap(arr)
 // heap.insert(10)

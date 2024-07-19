@@ -215,33 +215,55 @@
 // list.print()
 // console.log(list);
 
+// class Queue {
+//     constructor() {
+//         this.items = {}
+//         this.rear = 0
+//         this.front = 0
+//     }
+
+//     enqueue(value) {
+//         this.items[this.rear] = value
+//         this.rear++
+//     }
+
+//     dequeue() {
+//         delete this.items[this.front]
+//         this.front++
+//     }
+
+//     peek() {
+//         return this.items[this.front]
+//     }
+
+//     print() {
+//         console.log(this.items);
+//     }
+
+// }
+
+
 class Queue {
     constructor() {
-        this.items = {}
-        this.rear = 0
-        this.front = 0
+        this.queue = {}
+        this.left = 0
+        this.right = 0
     }
 
     enqueue(value) {
-        this.items[this.rear] = value
-        this.rear++
+        this.queue[this.left] = value
+        this.left++
     }
 
     dequeue() {
-        delete this.items[this.front]
-        this.front++
-    }
-
-    peek() {
-        return this.items[this.front]
+        delete this.queue[this.right]
+        this.right++
     }
 
     print() {
-        console.log(this.items);
+        console.log(this.queue)
     }
-
 }
-
 const queue = new Queue(5)
 queue.print()
 queue.enqueue(10)

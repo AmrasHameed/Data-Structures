@@ -1,5 +1,5 @@
 // function fn(n){
-//     let sum=(n*(n+1)/2)**2
+//     let sum=(n*(n+1)*(2*n+1)/6)
 //     console.log(sum);
 // }
 
@@ -13,8 +13,7 @@
 //         }
 //     }
 // }
-// console.log(totalSum(arr)); 
-
+// console.log(totalSum(arr));
 
 // function totalSum(arr,t){
 //     let set = new Set();
@@ -28,8 +27,8 @@
 //         }
 //     }
 // }
-// console.log(totalSum(arr,10)); 
-        
+// console.log(totalSum(arr,10));
+
 // let arr="53547583265716474388";
 // arr=arr.split('')
 // let target=6
@@ -52,7 +51,6 @@
 //     }
 // }
 
-
 // push the target to end
 // let arr = [6,2,3,6,4,3,6,1,66,9,6]
 // let target=6
@@ -68,3 +66,66 @@
 
 // console.log(arr);
 
+// function isPowerOfTwo(n) {
+//     if(n < 1) {
+//         return false
+//     }
+//     while(n > 1) {
+//         if(n%2!==0) {
+//             return false
+//         }
+//         n /= 2
+//     }
+//     return true
+// }
+// console.log(isPowerOfTwo(0));
+
+
+// function factorial(n) {
+//     if(n === 0) {
+//         return 1
+//     }
+//     return n * factorial(n - 1)
+// }
+
+// console.log(factorial(5))
+
+
+// function fib(n) {
+//     if(n < 2) {
+//         return n
+//     }
+//     return fib(n - 1) + fib(n - 2)
+// }
+// console.log(fib(7))
+
+
+// function find(arr,n) {
+//     let left = 0;
+//     let right = arr.length - 1;
+//     while(right >= left) {
+//         let mid = Math.floor((right+left)/2)
+//         if(n===arr[mid]) {
+//             return mid
+//         }
+//         if(n < arr[mid]) {
+//             right = mid - 1
+//         } else {
+//             left = mid + 1
+//         }
+//     }
+//     return -1
+// } 
+
+// console.log(find([-5,2,4,6,10],10))
+
+
+let obj = {
+    true:1,
+    2:2,
+    3:3
+}
+
+let arr = Object.keys(obj)
+
+console.log(typeof arr[2])

@@ -105,22 +105,22 @@
 
 class Stack {
     constructor() {
-        this.items = {}
+        this.stack = {}
         this.size = 0
     }
     push(value) {
-        this.items[this.size] = value
+        this.stack[this.size] = value
         this.size++
     }
     pop() {
-        delete this.items[this.size - 1]
+        delete this.stack[this.size - 1]
         this.size--
     }
     peek() {
-        return this.items[this.size - 1]
+        return this.stack[this.size - 1]
     }
-    print() {
-        console.log(this.items);
+    print(){
+        console.log(this.stack)
     }
 }
 
